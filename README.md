@@ -1,16 +1,76 @@
-# React + Vite
+# Smart Job Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Smart Job Portal is a modern React + Vite job management dashboard designed to help recruiters and hiring teams manage job listings and applicant applications in one place.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project provides a simple front-end portal where users can:
 
-## React Compiler
+- view available jobs
+- add new job postings
+- search and filter jobs by keyword or category
+- apply for jobs
+- track applicant status through a summary dashboard
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the Oxlint configuration
+- Responsive job portal UI
+- Job listing with company, location, salary, category, experience, and description
+- Add new jobs through a form
+- Search and category-based filtering
+- Applicant submission form for job applications
+- Dashboard cards showing total jobs, applicants, interviews, and selected candidates
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Tech Stack
+
+- React 19
+- Vite
+- CSS for styling
+- JavaScript (ES6+)
+
+## Project Structure
+
+- src/App.jsx – main app layout and state management
+- src/components/ – reusable UI components for navbar, dashboard, forms, lists, and filters
+- src/data/sampleData.js – sample job data used by the app
+- src/styles/ – component styling files
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js installed on your system.
+
+### Installation
+
+1. Clone the repository
+2. Navigate to the project folder:
+   ```bash
+   cd smart-job-portal
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Run the app locally
+
+```bash
+npm run dev
+```
+
+Then open your browser and visit:
+
+```text
+http://localhost:5173
+```
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+## Notes
+
+This project currently uses local React state for job and applicant data. It does not connect to a backend or database yet, so data is reset on refresh.
