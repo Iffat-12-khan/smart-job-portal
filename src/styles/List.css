@@ -1,0 +1,20 @@
+.list-container{
+
+    width:90%;
+
+    margin:40px auto;
+}
+
+.list-container h2{
+
+    margin-bottom:20px;
+}
+
+.job-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:20px;
+}

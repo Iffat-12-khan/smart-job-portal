@@ -1,0 +1,41 @@
+.dashboard{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+padding:30px;
+
+}
+
+.box{
+
+background:white;
+
+padding:30px;
+
+border-radius:10px;
+
+box-shadow:0 0 10px rgba(0,0,0,.1);
+
+text-align:center;
+
+}
+
+.box h2{
+
+font-size:35px;
+
+color:#2d3e50;
+
+}
+
+.box p{
+
+font-size:18px;
+
+margin-top:10px;
+
+}
