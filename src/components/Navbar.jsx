@@ -1,10 +1,10 @@
 import "../styles/Navbar.css";
 
-function Navbar() {
+function Navbar({ portal }) {
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -15,21 +15,37 @@ function Navbar() {
 
       <ul>
 
-        <li onClick={() => scrollToSection("dashboard")}>
-          Dashboard
-        </li>
+        {portal === "hr" && (
+          <>
+            <li onClick={() => scrollToSection("dashboard")}>
+              Dashboard
+            </li>
 
-        <li onClick={() => scrollToSection("jobs")}>
-          Jobs
-        </li>
+            <li onClick={() => scrollToSection("jobs")}>
+              Jobs
+            </li>
 
-        <li onClick={() => scrollToSection("search")}>
-          Search
-        </li>
+            <li onClick={() => scrollToSection("applicants")}>
+              Applicants
+            </li>
+          </>
+        )}
 
-        <li onClick={() => scrollToSection("applicants")}>
-          Applicants
-        </li>
+        {portal === "applicant" && (
+          <>
+            <li onClick={() => scrollToSection("jobs")}>
+              Jobs
+            </li>
+
+            <li onClick={() => scrollToSection("search")}>
+              Search
+            </li>
+
+            <li onClick={() => scrollToSection("apply")}>
+              Apply
+            </li>
+          </>
+        )}
 
       </ul>
 

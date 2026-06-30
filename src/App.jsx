@@ -1,5 +1,7 @@
 import { useState } from "react";
-
+import Home from "./components/Home";
+import HRPortal from "./components/HRPortal";
+import ApplicantPortal from "./components/ApplicantPortal";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import JobForm from "./components/JobForm";
@@ -17,7 +19,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [applicants, setApplicants] = useState([]);
-
+  const [portal, setPortal] = useState("home");
   const filteredJobs = jobs.filter((job) => {
 
     const matchSearch =
@@ -34,57 +36,53 @@ function App() {
   return (
 
     <>
-      <Navbar />
 
-      <section id="dashboard">
-        <Dashboard
-          jobs={jobs}
-          applicants={applicants}
-        />
-      </section>
+        {portal === "home" && (
 
-      <section id="jobs">
-        <JobForm
-          jobs={jobs}
-          setJobs={setJobs}
-        />
+            <Home setPortal={setPortal} />
 
-        <JobList
-          jobs={filteredJobs}
-          setJobs={setJobs}
-          applicants={applicants}
-          setApplicants={setApplicants}
-        />
-      </section>
+        )}
 
-      <section id="search">
-        <SearchBar
-          search={search}
-          setSearch={setSearch}
-        />
+        {portal === "hr" && (
 
-        <Filter
-          category={category}
-          setCategory={setCategory}
-        />
-      </section>
+            <HRPortal
 
-      <section id="applicants">
-        <ApplicantForm
-          jobs={jobs}
-          applicants={applicants}
-          setApplicants={setApplicants}
-        />
+                jobs={jobs}
+                setJobs={setJobs}
 
-        <ApplicantList
-          applicants={applicants}
-          setApplicants={setApplicants}
-        />
-      </section>
+                applicants={applicants}
+                setApplicants={setApplicants}
+
+                filteredJobs={filteredJobs}
+
+            />
+
+        )}
+
+        {portal === "applicant" && (
+
+            <ApplicantPortal
+
+                jobs={jobs}
+
+                filteredJobs={filteredJobs}
+
+                search={search}
+                setSearch={setSearch}
+
+                category={category}
+                setCategory={setCategory}
+
+                applicants={applicants}
+                setApplicants={setApplicants}
+
+            />
+
+        )}
 
     </>
 
-  );
+);
 
 }
 

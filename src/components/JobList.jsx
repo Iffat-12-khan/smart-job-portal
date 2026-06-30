@@ -1,7 +1,13 @@
 import JobCard from "./JobCard";
 import "../styles/List.css";
 
-function JobList({ jobs, setJobs, applicants, setApplicants }) {
+function JobList({
+  jobs,
+  setJobs,
+  applicants,
+  setApplicants,
+  portal
+}) {
   return (
     <div className="list-container">
 
@@ -20,6 +26,7 @@ function JobList({ jobs, setJobs, applicants, setApplicants }) {
               setJobs={setJobs}
               applicants={applicants}
               setApplicants={setApplicants}
+              portal={portal}
             />
           ))}
 

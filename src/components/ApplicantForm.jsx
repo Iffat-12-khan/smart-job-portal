@@ -38,7 +38,10 @@ function ApplicantForm({ jobs, applicants, setApplicants }) {
       ...form
     };
 
-    setApplicants([...applicants, newApplicant]);
+    setApplicants((prevApplicants) => [
+  ...prevApplicants,
+  newApplicant
+]);
 
     setForm({
       name: "",

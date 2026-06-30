@@ -4,8 +4,7 @@ function JobCard({
   job,
   jobs,
   setJobs,
-  applicants,
-  setApplicants
+  portal
 }) {
 
   const deleteJob = () => {
@@ -15,20 +14,12 @@ function JobCard({
 
   const applyJob = () => {
 
-    const applicant = {
-      id: Date.now(),
-      name: "New Applicant",
-      email: "example@gmail.com",
-      phone: "9999999999",
-      resume: "Resume.pdf",
-      status: "Applied",
-      jobTitle: job.title,
-      company: job.company
-    };
+    document
+      .getElementById("apply")
+      ?.scrollIntoView({
+        behavior: "smooth"
+      });
 
-    setApplicants([...applicants, applicant]);
-
-    alert("Application submitted successfully.");
   };
 
   return (
@@ -37,43 +28,41 @@ function JobCard({
 
       <h3>{job.title}</h3>
 
-      <p>
-        <strong>Company:</strong> {job.company}
-      </p>
+      <p><strong>Company:</strong> {job.company}</p>
 
-      <p>
-        <strong>Location:</strong> {job.location}
-      </p>
+      <p><strong>Location:</strong> {job.location}</p>
 
-      <p>
-        <strong>Salary:</strong> {job.salary}
-      </p>
+      <p><strong>Salary:</strong> {job.salary}</p>
 
-      <p>
-        <strong>Category:</strong> {job.category}
-      </p>
+      <p><strong>Category:</strong> {job.category}</p>
 
-      <p>
-        <strong>Experience:</strong> {job.experience}
-      </p>
+      <p><strong>Experience:</strong> {job.experience}</p>
 
       <p>{job.description}</p>
 
       <div className="button-group">
 
-        <button
-          className="apply-btn"
-          onClick={applyJob}
-        >
-          Apply
-        </button>
+        {portal === "applicant" && (
 
-        <button
-          className="delete-btn"
-          onClick={deleteJob}
-        >
-          Delete
-        </button>
+          <button
+            className="apply-btn"
+            onClick={applyJob}
+          >
+            Apply
+          </button>
+
+        )}
+
+        {portal === "hr" && (
+
+          <button
+            className="delete-btn"
+            onClick={deleteJob}
+          >
+            Delete
+          </button>
+
+        )}
 
       </div>
 

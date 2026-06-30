@@ -1,62 +1,70 @@
 import "../styles/Dashboard.css";
 
-function Dashboard({jobs,applicants}){
+function Dashboard({ jobs, applicants }) {
 
-const interview=
+  const totalJobs = jobs.length;
 
-applicants.filter(
+  const totalApplicants = applicants.length;
 
-item=>item.status==="Interview"
+  const applied = applicants.filter(
+    (applicant) => applicant.status === "Applied"
+  ).length;
 
-).length;
+  const interview = applicants.filter(
+    (applicant) => applicant.status === "Interview"
+  ).length;
 
-const selected=
+  const selected = applicants.filter(
+    (applicant) => applicant.status === "Selected"
+  ).length;
 
-applicants.filter(
+  const rejected = applicants.filter(
+    (applicant) => applicant.status === "Rejected"
+  ).length;
 
-item=>item.status==="Selected"
+  return (
 
-).length;
+    <div className="dashboard">
 
-return(
+      <h2>HR Dashboard</h2>
 
-<div className="dashboard">
+      <div className="stats-container">
 
-<div className="box">
+        <div className="stat-card">
+          <h3>Total Jobs</h3>
+          <p>{totalJobs}</p>
+        </div>
 
-<h2>{jobs.length}</h2>
+        <div className="stat-card">
+          <h3>Total Applicants</h3>
+          <p>{totalApplicants}</p>
+        </div>
 
-<p>Total Jobs</p>
+        <div className="stat-card">
+          <h3>Applied</h3>
+          <p>{applied}</p>
+        </div>
 
-</div>
+        <div className="stat-card">
+          <h3>Interview</h3>
+          <p>{interview}</p>
+        </div>
 
-<div className="box">
+        <div className="stat-card">
+          <h3>Selected</h3>
+          <p>{selected}</p>
+        </div>
 
-<h2>{applicants.length}</h2>
+        <div className="stat-card">
+          <h3>Rejected</h3>
+          <p>{rejected}</p>
+        </div>
 
-<p>Total Applicants</p>
+      </div>
 
-</div>
+    </div>
 
-<div className="box">
-
-<h2>{interview}</h2>
-
-<p>Interview</p>
-
-</div>
-
-<div className="box">
-
-<h2>{selected}</h2>
-
-<p>Selected</p>
-
-</div>
-
-</div>
-
-)
+  );
 
 }
 
