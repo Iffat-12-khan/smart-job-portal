@@ -82,3 +82,11 @@
 
     background:#b02a37;
 }
+
+@media (max-width:768px){
+
+    .button-group{
+        flex-direction:column;
+    }
+
+}

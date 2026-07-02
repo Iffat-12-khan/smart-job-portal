@@ -51,3 +51,15 @@
     color:#2d3e50;
 
 }
+
+@media (max-width:768px){
+
+    .dashboard{
+        padding:20px;
+    }
+
+    .dashboard h2{
+        font-size:28px;
+    }
+
+}

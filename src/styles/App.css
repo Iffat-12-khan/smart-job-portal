@@ -39,3 +39,23 @@ margin:auto;
     background-color: #0b3080;
     transform: translateY(-2px);
 }
+
+img{
+    max-width:100%;
+}
+
+@media (max-width:768px){
+
+    h1{
+        font-size:32px;
+    }
+
+    h2{
+        font-size:26px;
+    }
+
+    h3{
+        font-size:20px;
+    }
+
+}
